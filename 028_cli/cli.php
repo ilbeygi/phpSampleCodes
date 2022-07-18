@@ -17,7 +17,12 @@
     return readline("Please enter your command : ");
  }
 
- $todo = ['Todo One', 'Todo two'];
+ function addTodo(&$todoList) {
+    $todo = readline("Please add your todo : ");
+    $todoList[] = $todo;
+ }
+
+ $todo = [];
 
  while (1) {
     $command = getCommand();
@@ -34,6 +39,10 @@
         echo PHP_EOL;
     }
 
+    if ($command == 2) {
+        // add todo
+        addTodo($todo);
+    }
  }
 
  echo $command;
