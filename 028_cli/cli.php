@@ -22,6 +22,22 @@
     $todoList[] = $todo;
  }
 
+ function removeTodo(&$todoList) {
+    $todoId = (int) readline("Add todo ID for remove : ");
+    $todoId = $todoId > 0 ? $todoId - 1 : $todoId;
+
+    if (! isset($todoList[$todoId])) {
+        echo "Not Validate." . PHP_EOL;
+        exit;
+    }
+
+    unset($todoList[$todoId]);
+
+    $todoList = array_values($todoList);
+
+    echo "Remove Success." . PHP_EOL;
+ }
+
  $todo = [];
 
  while (1) {
@@ -42,6 +58,11 @@
     if ($command == 2) {
         // add todo
         addTodo($todo);
+    }
+
+    if ($command == 3) {
+        // add todo
+        removeTodo($todo);
     }
  }
 
